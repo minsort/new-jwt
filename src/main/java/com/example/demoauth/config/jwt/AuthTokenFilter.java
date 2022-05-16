@@ -25,11 +25,12 @@ public class AuthTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         try {
-            String jwt = parseJwt(request);
-            if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
-                String username = jwtUtils.getUserNameFromJwtToken(jwt);
+            String jwt = parseJwt(request);//Парсим запрос для получения JWT токена
+            if (jwt != null && jwtUtils.validateJwtToken(jwt)) {//Проверяем токен на Null и валидность
+                String username = jwtUtils.getUserNameFromJwtToken(jwt);//Ищем Username в токене
 
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                //Пытаемся получить авторизационный токен
                 UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 

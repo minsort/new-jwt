@@ -19,6 +19,7 @@ public class JwtUtils {
     @Value("${app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
+    //Метод для создания токена
     public String generateJwtToken(Authentication authentication) {
 
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
@@ -27,7 +28,7 @@ public class JwtUtils {
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
     }
-
+    //Метод для валидации токена
     public boolean validateJwtToken(String jwt) {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(jwt);
