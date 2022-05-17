@@ -1,4 +1,4 @@
-package com.example.demoauth.model;
+package com.project.security.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "t_users",
+@Table(name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")})
@@ -37,4 +37,5 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
 }

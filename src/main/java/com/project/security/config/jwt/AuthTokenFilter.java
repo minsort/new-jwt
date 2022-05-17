@@ -1,6 +1,6 @@
-package com.example.demoauth.config.jwt;
+package com.project.security.config.jwt;
 
-import com.example.demoauth.service.UserDetailsServiceImpl;
+import com.project.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

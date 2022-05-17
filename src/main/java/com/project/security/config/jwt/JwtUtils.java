@@ -1,6 +1,6 @@
-package com.example.demoauth.config.jwt;
+package com.project.security.config.jwt;
 
-import com.example.demoauth.service.UserDetailsImpl;
+import com.project.security.service.UserDetailsImpl;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;

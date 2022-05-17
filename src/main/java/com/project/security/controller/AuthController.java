@@ -1,17 +1,17 @@
-package com.example.demoauth.controller;
+package com.project.security.controller;
 
-import com.example.demoauth.config.jwt.JwtUtils;
-import com.example.demoauth.model.ERole;
-import com.example.demoauth.model.Role;
+import com.project.security.model.ERole;
+import com.project.security.model.Role;
+import com.project.security.pojoSerialization.JwtResponse;
+import com.project.security.pojoSerialization.LoginRequest;
+import com.project.security.pojoSerialization.MessageResponse;
+import com.project.security.config.jwt.JwtUtils;
 
-import com.example.demoauth.model.User;
-import com.example.demoauth.pojoSerialization.JwtResponse;
-import com.example.demoauth.pojoSerialization.LoginRequest;
-import com.example.demoauth.pojoSerialization.MessageResponse;
-import com.example.demoauth.pojoSerialization.SignupRequest;
-import com.example.demoauth.repository.RoleRepository;
-import com.example.demoauth.repository.UserRepository;
-import com.example.demoauth.service.UserDetailsImpl;
+import com.project.security.model.User;
+import com.project.security.pojoSerialization.SignupRequest;
+import com.project.security.repository.RoleRepository;
+import com.project.security.repository.UserRepository;
+import com.project.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -62,8 +62,7 @@ public class AuthController {
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
 
-        return ResponseEntity.ok(new JwtResponse(
-                jwt,
+        return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
@@ -85,8 +84,7 @@ public class AuthController {
                     .body(new MessageResponse("Error: Email is exist"));
         }
 
-        User user = new User(
-                signupRequest.getUsername(),
+        User user = new User(signupRequest.getUsername(),
                 signupRequest.getEmail(),
                 passwordEncoder.encode(signupRequest.getPassword()));
 

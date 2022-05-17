@@ -1,8 +1,8 @@
-package com.example.demoauth.config;
+package com.project.security.config;
 
-import com.example.demoauth.config.jwt.AuthEntryPointJwt;
-import com.example.demoauth.config.jwt.AuthTokenFilter;
-import com.example.demoauth.service.UserDetailsServiceImpl;
+import com.project.security.config.jwt.AuthEntryPointJwt;
+import com.project.security.config.jwt.AuthTokenFilter;
+import com.project.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserDetailsServiceImpl userDetailsService;
 
     @Autowired
-    private  AuthEntryPointJwt unauthorizedHandler;
+    private AuthEntryPointJwt unauthorizedHandler;
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter(){

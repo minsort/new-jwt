@@ -1,4 +1,4 @@
-package com.example.demoauth.pojoSerialization;
+package com.project.security.pojoSerialization;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

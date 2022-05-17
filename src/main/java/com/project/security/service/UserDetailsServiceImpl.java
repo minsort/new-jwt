@@ -1,7 +1,7 @@
-package com.example.demoauth.service;
+package com.project.security.service;
 
-import com.example.demoauth.model.User;
-import com.example.demoauth.repository.UserRepository;
+import com.project.security.model.User;
+import com.project.security.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,7 +1,5 @@
-package com.example.demoauth.pojoSerialization;
+package com.project.security.pojoSerialization;
 
-import com.example.demoauth.model.Role;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

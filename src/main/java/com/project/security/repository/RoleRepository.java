@@ -1,7 +1,7 @@
-package com.example.demoauth.repository;
+package com.project.security.repository;
 
-import com.example.demoauth.model.ERole;
-import com.example.demoauth.model.Role;
+import com.project.security.model.ERole;
+import com.project.security.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

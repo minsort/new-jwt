@@ -1,6 +1,6 @@
-package com.example.demoauth.repository;
+package com.project.security.repository;
 
-import com.example.demoauth.model.User;
+import com.project.security.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
