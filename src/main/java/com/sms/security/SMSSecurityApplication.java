@@ -1,8 +1,8 @@
-package com.project.security;
+package com.sms.security;
 
-import com.project.security.model.ERole;
-import com.project.security.model.Role;
-import com.project.security.repository.RoleRepository;
+import com.sms.security.model.ERole;
+import com.sms.security.model.Role;
+import com.sms.security.repository.RoleRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

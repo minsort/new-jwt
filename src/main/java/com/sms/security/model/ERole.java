@@ -1,4 +1,4 @@
-package com.project.security.model;
+package com.sms.security.model;
 
 public enum ERole {
     ROLE_USER,

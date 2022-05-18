@@ -1,4 +1,4 @@
-package com.project.security.pojoSerialization;
+package com.sms.security.pojoSerialization;
 
 import lombok.Data;
 
@@ -8,7 +8,6 @@ import java.util.Set;
 @Data
 public class SignupRequest {
 
-    private String username;
     private String email;
     private Set<String> roles;
     private String password;

@@ -1,4 +1,4 @@
-package com.project.security.model;
+package com.sms.security.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

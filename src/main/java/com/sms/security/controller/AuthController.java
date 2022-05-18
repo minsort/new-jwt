@@ -1,17 +1,17 @@
-package com.project.security.controller;
+package com.sms.security.controller;
 
-import com.project.security.model.ERole;
-import com.project.security.model.Role;
-import com.project.security.pojoSerialization.JwtResponse;
-import com.project.security.pojoSerialization.LoginRequest;
-import com.project.security.pojoSerialization.MessageResponse;
-import com.project.security.config.jwt.JwtUtils;
+import com.sms.security.model.ERole;
+import com.sms.security.model.Role;
+import com.sms.security.pojoSerialization.JwtResponse;
+import com.sms.security.pojoSerialization.LoginRequest;
+import com.sms.security.pojoSerialization.MessageResponse;
+import com.sms.security.config.jwt.JwtUtils;
 
-import com.project.security.model.User;
-import com.project.security.pojoSerialization.SignupRequest;
-import com.project.security.repository.RoleRepository;
-import com.project.security.repository.UserRepository;
-import com.project.security.service.UserDetailsImpl;
+import com.sms.security.model.User;
+import com.sms.security.pojoSerialization.SignupRequest;
+import com.sms.security.repository.RoleRepository;
+import com.sms.security.repository.UserRepository;
+import com.sms.security.service.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -51,7 +51,7 @@ public class AuthController {
 
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
+                        loginRequest.getEmail(),
                         loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -64,7 +64,6 @@ public class AuthController {
 
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
-                userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));
     }
@@ -72,20 +71,13 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignupRequest signupRequest) {
 
-        if (userRespository.existsByUsername(signupRequest.getUsername())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new MessageResponse("Error: Username is exist"));
-        }
-
         if (userRespository.existsByEmail(signupRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: Email is exist"));
         }
 
-        User user = new User(signupRequest.getUsername(),
-                signupRequest.getEmail(),
+        User user = new User(signupRequest.getEmail(),
                 passwordEncoder.encode(signupRequest.getPassword()));
 
         Set<String> reqRoles = signupRequest.getRoles();

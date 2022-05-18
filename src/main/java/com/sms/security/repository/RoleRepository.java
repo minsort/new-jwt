@@ -1,7 +1,7 @@
-package com.project.security.repository;
+package com.sms.security.repository;
 
-import com.project.security.model.ERole;
-import com.project.security.model.Role;
+import com.sms.security.model.ERole;
+import com.sms.security.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

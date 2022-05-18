@@ -1,4 +1,4 @@
-package com.project.security.model;
+package com.sms.security.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,6 @@ import java.util.Set;
 @Entity
 @Table(name = "users",
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")})
 public class User {
 
@@ -22,9 +21,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    @Column(name = "surname")
+    private String surname;//Фамилия
+
+    @Column(name = "name")
+    private String name;//Имя
+
+    @Column(name = "middle_name")
+    private String middleName;//Отчество
+
+    @Column(name = "group_name")
+    private String group;//Группа
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "account")
+    private String accountType;//Тип аккаунта
+
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_roles",
@@ -32,8 +50,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User(String username, String email, String password) {
-        this.username = username;
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }

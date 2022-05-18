@@ -1,6 +1,6 @@
-package com.project.security.config.jwt;
+package com.sms.security.config.jwt;
 
-import com.project.security.service.UserDetailsImpl;
+import com.sms.security.service.UserDetailsImpl;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;

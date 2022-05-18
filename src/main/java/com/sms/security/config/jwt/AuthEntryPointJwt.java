@@ -1,4 +1,4 @@
-package com.project.security.config.jwt;
+package com.sms.security.config.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;

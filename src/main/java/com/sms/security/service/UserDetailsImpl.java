@@ -1,6 +1,6 @@
-package com.project.security.service;
+package com.sms.security.service;
 
-import com.project.security.model.User;
+import com.sms.security.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,6 @@ public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     private long id;
-    private String username;
     private String email;
 
     @JsonIgnore
@@ -32,7 +31,6 @@ public class UserDetailsImpl implements UserDetails {
                 .collect(Collectors.toList());
         return new UserDetailsImpl(
                 user.getId(),
-                user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
                 authorities);
@@ -47,17 +45,17 @@ public class UserDetailsImpl implements UserDetails {
         return password;
     }
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
-
     public Long getId() {
         return id;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
     }
 
 

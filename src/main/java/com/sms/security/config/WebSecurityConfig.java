@@ -1,8 +1,8 @@
-package com.project.security.config;
+package com.sms.security.config;
 
-import com.project.security.config.jwt.AuthEntryPointJwt;
-import com.project.security.config.jwt.AuthTokenFilter;
-import com.project.security.service.UserDetailsServiceImpl;
+import com.sms.security.config.jwt.AuthEntryPointJwt;
+import com.sms.security.config.jwt.AuthTokenFilter;
+import com.sms.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

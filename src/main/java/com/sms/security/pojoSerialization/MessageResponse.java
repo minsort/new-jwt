@@ -1,4 +1,4 @@
-package com.project.security.pojoSerialization;
+package com.sms.security.pojoSerialization;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
