@@ -77,7 +77,13 @@ public class AuthController {
                     .body(new MessageResponse("Error: Email is exist"));
         }
 
-        User user = new User(signupRequest.getEmail(),
+        User user = new User(
+                signupRequest.getSurname(),
+                signupRequest.getName(),
+                signupRequest.getMiddleName(),
+                signupRequest.getAccountType(),
+                signupRequest.getGroup(),
+                signupRequest.getEmail(),
                 passwordEncoder.encode(signupRequest.getPassword()));
 
         Set<String> reqRoles = signupRequest.getRoles();
@@ -115,6 +121,7 @@ public class AuthController {
             });
         }
         user.setRoles(roles);
+        System.out.println(user);
         userRespository.save(user);
         return ResponseEntity.ok(new MessageResponse("User CREATED"));
     }
