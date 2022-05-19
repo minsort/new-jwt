@@ -1,6 +1,5 @@
 package com.sms.security.controller;
 
-import antlr.Token;
 import com.sms.security.model.ERole;
 import com.sms.security.model.Role;
 import com.sms.security.pojoSerialization.JwtResponse;
@@ -13,10 +12,7 @@ import com.sms.security.pojoSerialization.SignupRequest;
 import com.sms.security.repository.RoleRepository;
 import com.sms.security.repository.UserRepository;
 import com.sms.security.service.UserDetailsImpl;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
