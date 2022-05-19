@@ -2,6 +2,7 @@ package com.sms.security.pojoSerialization;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import java.util.Set;
@@ -9,6 +10,7 @@ import java.util.Set;
 //используется для сериализации
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class SignupRequest {
 
